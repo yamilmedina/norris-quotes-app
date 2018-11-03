@@ -22,4 +22,9 @@ class PhraseFeedActivity : PhraseFeedInterface, AppCompatActivity() {
         textViewPhraseDisplay.text = randomPhrase
     }
 
+    override fun onStop() {
+        super.onStop()
+        presenter.disposeCalls()
+    }
+
 }
