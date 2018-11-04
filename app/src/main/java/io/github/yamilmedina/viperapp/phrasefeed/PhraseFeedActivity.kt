@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import io.github.yamilmedina.viperapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class PhraseFeedActivity : PhraseFeedInterface, AppCompatActivity() {
+class PhraseFeedActivity : PhraseFeedView, AppCompatActivity() {
 
     private val presenter: PhraseFeedPresenter = PhraseFeedPresenter(this)
 

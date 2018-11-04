@@ -12,11 +12,9 @@ object HttpManager {
     private val retrofitBuilder: Retrofit
 
     init {
-        val gson = GsonBuilder().setLenient().create()
-
         retrofitBuilder = Retrofit.Builder()
                 .baseUrl(PHRASE_BASE_API_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
     }
@@ -24,6 +22,5 @@ object HttpManager {
     fun <T> createRemoteService(clazz: Class<T>): T {
         return retrofitBuilder.create(clazz)
     }
-
 
 }

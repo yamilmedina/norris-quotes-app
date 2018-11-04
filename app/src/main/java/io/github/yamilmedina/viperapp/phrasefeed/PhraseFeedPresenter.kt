@@ -4,7 +4,7 @@ import android.text.Html
 import android.util.Log
 import io.reactivex.disposables.Disposable
 
-internal class PhraseFeedPresenter constructor(val view: PhraseFeedInterface) {
+internal class PhraseFeedPresenter constructor(val view: PhraseFeedView) {
 
     private var phraseFeedInteractor = PhraseFeedInteractor()
     private var disposable: Disposable? = null
@@ -22,7 +22,7 @@ internal class PhraseFeedPresenter constructor(val view: PhraseFeedInterface) {
     }
 
     private fun getNormalizedText(htmlText: String): String {
-        return Html.fromHtml(htmlText,  Html.FROM_HTML_MODE_LEGACY).toString()
+        return Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY).toString()
     }
 
 }

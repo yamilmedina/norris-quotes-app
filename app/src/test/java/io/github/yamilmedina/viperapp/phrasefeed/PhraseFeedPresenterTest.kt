@@ -10,7 +10,7 @@ import org.junit.Test
 class PhraseFeedPresenterTest {
 
     private lateinit var presenter : PhraseFeedPresenter
-    private lateinit var view : PhraseFeedInterface
+    private lateinit var view : PhraseFeedView
     private val interactor = mock<PhraseFeedInteractor> {  }
 
     @Before
