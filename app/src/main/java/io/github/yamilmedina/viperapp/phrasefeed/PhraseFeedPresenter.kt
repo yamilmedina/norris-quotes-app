@@ -10,7 +10,7 @@ internal class PhraseFeedPresenter constructor(val view: PhraseFeedView) {
     private var disposable: Disposable? = null
 
     fun generateRandomPhrase() {
-        disposable = phraseFeedInteractor.fetchRandomPhrases(2).subscribe({
+        disposable = phraseFeedInteractor.fetchRandomPhrases(5).subscribe({
             view.showRandomPhrase(getNormalizedText(it.phrases.shuffled().take(1)[0].joke))
         }, {
             Log.e("ERRORS", "Error: ${it.message}")
