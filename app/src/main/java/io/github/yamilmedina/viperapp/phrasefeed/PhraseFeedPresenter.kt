@@ -4,10 +4,11 @@ import android.text.Html
 import android.util.Log
 import io.reactivex.disposables.Disposable
 
-internal class PhraseFeedPresenter constructor(val view: PhraseFeedView) {
+internal class PhraseFeedPresenter {
 
     private var phraseFeedInteractor = PhraseFeedInteractor()
     private var disposable: Disposable? = null
+    private lateinit var view: PhraseFeedView
 
     fun generateRandomPhrase() {
         disposable = phraseFeedInteractor.fetchRandomPhrases(5).subscribe({
@@ -23,6 +24,10 @@ internal class PhraseFeedPresenter constructor(val view: PhraseFeedView) {
 
     private fun getNormalizedText(htmlText: String): String {
         return Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY).toString()
+    }
+
+    fun setView(view: PhraseFeedView) {
+        this.view = view
     }
 
 }

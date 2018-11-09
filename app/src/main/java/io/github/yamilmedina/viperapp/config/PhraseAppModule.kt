@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedInteractor
+import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedPresenter
 import javax.inject.Singleton
 
 @Module
@@ -15,7 +16,10 @@ class PhraseAppModule(val context: Context) {
 
     @Provides
     @Singleton
-    private fun getPhraseFeedInteractor(): PhraseFeedInteractor {
-        return PhraseFeedInteractor()
-    }
+    internal fun getPhraseFeedInteractor(): PhraseFeedInteractor = PhraseFeedInteractor()
+
+    @Provides
+    @Singleton
+    internal fun getPhraseFeedPresenter(): PhraseFeedPresenter = PhraseFeedPresenter()
+
 }
