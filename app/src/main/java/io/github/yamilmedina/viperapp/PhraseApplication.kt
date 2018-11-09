@@ -1,6 +1,9 @@
-package io.github.yamilmedina.viperapp.config
+package io.github.yamilmedina.viperapp
 
 import android.app.Application
+import io.github.yamilmedina.viperapp.config.DaggerPhraseAppComponent
+import io.github.yamilmedina.viperapp.config.PhraseAppComponent
+import io.github.yamilmedina.viperapp.config.PhraseAppModule
 
 class PhraseApplication : Application() {
 

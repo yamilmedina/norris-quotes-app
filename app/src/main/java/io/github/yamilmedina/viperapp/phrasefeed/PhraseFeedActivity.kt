@@ -2,8 +2,8 @@ package io.github.yamilmedina.viperapp.phrasefeed
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import io.github.yamilmedina.viperapp.PhraseApplication
 import io.github.yamilmedina.viperapp.R
-import io.github.yamilmedina.viperapp.config.PhraseApplication
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
