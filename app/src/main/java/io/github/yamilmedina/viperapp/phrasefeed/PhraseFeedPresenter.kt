@@ -3,10 +3,11 @@ package io.github.yamilmedina.viperapp.phrasefeed
 import android.text.Html
 import android.util.Log
 import io.reactivex.disposables.Disposable
+import javax.inject.Inject
 
-internal class PhraseFeedPresenter {
+internal class PhraseFeedPresenter @Inject constructor(
+        private val phraseFeedInteractor: PhraseFeedInteractor) {
 
-    private var phraseFeedInteractor = PhraseFeedInteractor()
     private var disposable: Disposable? = null
     private lateinit var view: PhraseFeedView
 

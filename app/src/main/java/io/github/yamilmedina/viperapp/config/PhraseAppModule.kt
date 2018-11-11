@@ -20,6 +20,6 @@ class PhraseAppModule(val context: Context) {
 
     @Provides
     @Singleton
-    internal fun getPhraseFeedPresenter(): PhraseFeedPresenter = PhraseFeedPresenter()
+    internal fun getPhraseFeedPresenter(phraseFeedInteractor: PhraseFeedInteractor): PhraseFeedPresenter = PhraseFeedPresenter(phraseFeedInteractor)
 
 }
