@@ -2,8 +2,8 @@ package io.github.yamilmedina.viperapp.phrasefeed
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import io.github.yamilmedina.viperapp.PhraseApplication
 import io.github.yamilmedina.viperapp.R
+import io.github.yamilmedina.viperapp.utils.appComponent
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ class PhraseFeedActivity : PhraseFeedView, AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        (application as PhraseApplication).phraseAppComponent.inject(this)
+        appComponent().inject(this)
 
         buttonNewPhrase.setOnClickListener {
             presenter.generateRandomPhrase()
