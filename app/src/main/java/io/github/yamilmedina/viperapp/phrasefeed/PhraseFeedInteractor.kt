@@ -1,7 +1,7 @@
 package io.github.yamilmedina.viperapp.phrasefeed
 
 import io.github.yamilmedina.viperapp.data.PhraseResultEntity
-import io.github.yamilmedina.viperapp.network.HttpManager
+import io.github.yamilmedina.viperapp.utils.HttpManager
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

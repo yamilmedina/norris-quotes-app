@@ -1,4 +1,4 @@
-package io.github.yamilmedina.viperapp.network
+package io.github.yamilmedina.viperapp.utils
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
