@@ -10,6 +10,7 @@ internal class PhraseFeedPresenter @Inject constructor(
 
     private var disposable: Disposable? = null
     private lateinit var view: PhraseFeedView
+    private val phraseFeedRouter: PhraseFeedRouter by lazy { PhraseFeedRouter(view as PhraseFeedActivity) }
 
     fun generateRandomPhrase() {
         disposable = phraseFeedInteractor.fetchRandomPhrases(5).subscribe({
@@ -17,6 +18,10 @@ internal class PhraseFeedPresenter @Inject constructor(
         }, {
             Log.e("ERRORS", "Error: ${it.message}")
         })
+    }
+
+    fun goToPhraseTranslation(text: String) {
+        phraseFeedRouter.goToPhrasesScreen(text)
     }
 
     fun disposeCalls() {

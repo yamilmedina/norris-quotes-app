@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class PhraseFeedActivity : PhraseFeedView, AppCompatActivity() {
-
     @Inject
     internal lateinit var presenter: PhraseFeedPresenter
 
@@ -20,6 +19,10 @@ class PhraseFeedActivity : PhraseFeedView, AppCompatActivity() {
 
         buttonNewPhrase.setOnClickListener {
             presenter.generateRandomPhrase()
+        }
+
+        buttonTranslate.setOnClickListener {
+            presenter.goToPhraseTranslation(textViewPhraseDisplay.text.toString())
         }
 
         presenter.setView(this)

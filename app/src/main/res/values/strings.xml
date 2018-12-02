@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ViperApp</string>
     <string name="texto_frase_dia">Nueva Frase</string>
+    <string name="text_translate">TRADUCIR (es)</string>
 </resources>
