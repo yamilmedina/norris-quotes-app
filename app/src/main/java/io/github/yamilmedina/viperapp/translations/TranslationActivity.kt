@@ -6,8 +6,12 @@ import io.github.yamilmedina.viperapp.R
 import io.github.yamilmedina.viperapp.utils.PHRASE_INTENT_EXTRA
 import io.github.yamilmedina.viperapp.utils.appComponent
 import kotlinx.android.synthetic.main.translations_activity.*
+import javax.inject.Inject
 
-class TranslationActivity : AppCompatActivity() {
+class TranslationActivity : TranslationView, AppCompatActivity() {
+
+    @Inject
+    internal lateinit var presenter: TranslationPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,8 +19,14 @@ class TranslationActivity : AppCompatActivity() {
 
         appComponent().inject(this)
 
+        presenter.setView(this)
+
         val originalPhrase = intent?.getStringExtra(PHRASE_INTENT_EXTRA)
-        translatedText.text = originalPhrase
+        presenter.translateTo("es", originalPhrase.orEmpty())
+    }
+
+    override fun showTranslatedText(text: String) {
+        translatedText.text = text
     }
 
 }

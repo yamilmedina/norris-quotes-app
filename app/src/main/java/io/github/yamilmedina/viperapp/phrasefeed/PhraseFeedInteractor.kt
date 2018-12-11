@@ -8,7 +8,9 @@ import io.reactivex.schedulers.Schedulers
 
 internal class PhraseFeedInteractor {
 
-    private val phraseService: PhraseService by lazy { HttpManager.createRemoteService(PhraseService::class.java) }
+    private val phraseService: PhraseService by lazy {
+        HttpManager.createRemoteService("http://api.icndb.com/jokes/", PhraseService::class.java)
+    }
 
     fun fetchRandomPhrases(quantity: Int = 10): Single<PhraseResultEntity> {
         return phraseService.fetchRandomPhrase(quantity)
