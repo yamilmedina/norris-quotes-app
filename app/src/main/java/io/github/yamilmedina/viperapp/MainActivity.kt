@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
         buttonNewPhrase.setOnClickListener {
             findNavController(R.id.nav_host_container).navigate(R.id.phraseFeedFragment)
