@@ -12,7 +12,9 @@
         android:label="PhraseFeedFragment" >
         <action
             android:id="@+id/action_phraseFeedFragment_to_translationFragment"
-            app:destination="@id/translationFragment" />
+            app:destination="@id/translationFragment"
+            app:enterAnim="@anim/transition_in_down"
+            app:popExitAnim="@anim/transition_in_down" />
     </fragment>
     <fragment
         android:id="@+id/translationFragment"

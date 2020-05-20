@@ -1,5 +1,6 @@
 package io.github.yamilmedina.viperapp.phrasefeed
 
+import android.animation.Animator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +12,13 @@ import io.github.yamilmedina.viperapp.utils.appComponent
 import kotlinx.android.synthetic.main.phrase_fragment.*
 import javax.inject.Inject
 
-class PhraseFeedFragment : PhraseFeedView, Fragment(){
+
+class PhraseFeedFragment : PhraseFeedView, Fragment() {
 
     @Inject
     internal lateinit var presenter: PhraseFeedPresenter
+
+    private lateinit var spruceAnimator: Animator
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.phrase_fragment, container, false)
@@ -38,6 +42,15 @@ class PhraseFeedFragment : PhraseFeedView, Fragment(){
 
     override fun showRandomPhrase(randomPhrase: String) {
         textViewPhraseDisplay.text = randomPhrase
+    }
+
+    override fun showLoader() {
+        phraseContainerGroup.showShimmer(true)
+    }
+
+    override fun stopLoader() {
+        phraseContainerGroup.stopShimmer()
+        phraseContainerGroup.hideShimmer()
     }
 
     override fun onDestroy() {

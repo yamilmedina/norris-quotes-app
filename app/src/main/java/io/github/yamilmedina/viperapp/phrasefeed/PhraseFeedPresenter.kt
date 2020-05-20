@@ -14,15 +14,15 @@ internal class PhraseFeedPresenter @Inject constructor(
     private val phraseFeedRouter: PhraseFeedRouter by lazy { PhraseFeedRouter(view as MainActivity) }
 
     fun generateRandomPhrase() {
-        disposable = phraseFeedInteractor.fetchRandomPhrases(5).subscribe({
-            view.showRandomPhrase(getNormalizedText(it.phrases.shuffled().take(1)[0].joke))
-        }, {
-            Log.e("ERRORS", "Error: ${it.message}")
-        })
-    }
-
-    fun goToPhraseTranslation(text: String) {
-        phraseFeedRouter.goToPhrasesScreen(text)
+        disposable = phraseFeedInteractor
+                .fetchRandomPhrases(5)
+                .doOnSubscribe { view.showLoader() }
+                .doFinally { view.stopLoader() }
+                .subscribe({
+                    view.showRandomPhrase(getNormalizedText(it.phrases.shuffled().take(1)[0].joke))
+                }, {
+                    Log.e("ERRORS", "Error: ${it.message}")
+                })
     }
 
     fun disposeCalls() {
