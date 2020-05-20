@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/phraseFeedFragment">
+
+
+    <fragment
+        android:id="@+id/phraseFeedFragment"
+        android:name="io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedFragment"
+        android:label="PhraseFeedFragment" />
+    <fragment
+        android:id="@+id/translationFragment"
+        android:name="io.github.yamilmedina.viperapp.translations.TranslationFragment"
+        android:label="translations_fragment"
+        tools:layout="@layout/translations_fragment" />
+</navigation>

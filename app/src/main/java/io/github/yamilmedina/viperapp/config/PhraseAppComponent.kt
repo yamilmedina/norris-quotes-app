@@ -2,7 +2,7 @@ package io.github.yamilmedina.viperapp.config
 
 import dagger.Component
 import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedActivity
-import io.github.yamilmedina.viperapp.translations.TranslationActivity
+import io.github.yamilmedina.viperapp.translations.TranslationFragment
 import javax.inject.Singleton
 
 @Singleton
@@ -10,6 +10,6 @@ import javax.inject.Singleton
 interface PhraseAppComponent {
 
     fun inject(phraseFeedActivity: PhraseFeedActivity)
-    fun inject(translationActivity: TranslationActivity)
+    fun inject(translationActivity: TranslationFragment)
 
 }
