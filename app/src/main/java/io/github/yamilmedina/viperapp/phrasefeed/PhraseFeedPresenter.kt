@@ -2,6 +2,7 @@ package io.github.yamilmedina.viperapp.phrasefeed
 
 import android.text.Html
 import android.util.Log
+import io.github.yamilmedina.viperapp.MainActivity
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
@@ -10,7 +11,7 @@ internal class PhraseFeedPresenter @Inject constructor(
 
     private var disposable: Disposable? = null
     private lateinit var view: PhraseFeedView
-    private val phraseFeedRouter: PhraseFeedRouter by lazy { PhraseFeedRouter(view as PhraseFeedActivity) }
+    private val phraseFeedRouter: PhraseFeedRouter by lazy { PhraseFeedRouter(view as MainActivity) }
 
     fun generateRandomPhrase() {
         disposable = phraseFeedInteractor.fetchRandomPhrases(5).subscribe({

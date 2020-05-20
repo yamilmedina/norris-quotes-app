@@ -9,10 +9,19 @@
     <fragment
         android:id="@+id/phraseFeedFragment"
         android:name="io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedFragment"
-        android:label="PhraseFeedFragment" />
+        android:label="PhraseFeedFragment" >
+        <action
+            android:id="@+id/action_phraseFeedFragment_to_translationFragment"
+            app:destination="@id/translationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/translationFragment"
         android:name="io.github.yamilmedina.viperapp.translations.TranslationFragment"
         android:label="translations_fragment"
-        tools:layout="@layout/translations_fragment" />
+        tools:layout="@layout/translations_fragment" >
+        <argument
+            android:name="originalQuote"
+            app:argType="string"
+            android:defaultValue="No quote today" />
+    </fragment>
 </navigation>

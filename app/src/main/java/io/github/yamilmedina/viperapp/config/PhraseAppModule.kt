@@ -28,8 +28,4 @@ class PhraseAppModule(val context: Context) {
     @Singleton
     internal fun getTranslationPresenter(translationInteractor: TranslationInteractor) =  TranslationPresenter(translationInteractor)
 
-    @Provides
-    @Singleton
-    internal fun getTranslationsInteractor() = TranslationInteractor()
-
 }
