@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
     android:layout_marginBottom="16dp">
 
-    <TextView android:id="@+id/quoteFaved"
+    <TextView
+        android:id="@+id/quoteFaved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="2"
         android:gravity="center_vertical"
-        tools:text="Favorite quote from Chuck Norris seen first on may 1st of 2015!!"
+        android:lines="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Favorite quote from Chuck Norris seen first on may 1st of 2015!!" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

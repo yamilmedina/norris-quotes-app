@@ -21,8 +21,9 @@ class FavoritesInteractor @Inject constructor(private val context: Context) {
 
         val editor = sharedPreferences.edit()
         editor.remove(QUOTES_KEY)
-        editor.putStringSet(QUOTES_KEY, quotes)
+        editor.apply()
 
+        editor.putStringSet(QUOTES_KEY, quotes)
         editor.apply()
     }
 }
