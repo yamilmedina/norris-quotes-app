@@ -26,4 +26,15 @@
             app:argType="string"
             android:defaultValue="No quote today" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="io.github.yamilmedina.viperapp.favorites.FavoritesFragment"
+        android:label="FavoritesFragment">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="favquotes://fav/quotes/list" />
+        <deepLink
+            android:id="@+id/deepLinkImplicit"
+            app:uri="fav/quotes/list" />
+    </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 package io.github.yamilmedina.viperapp.config
 
 import dagger.Component
+import io.github.yamilmedina.viperapp.favorites.FavoritesFragment
 import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedFragment
 import io.github.yamilmedina.viperapp.translations.TranslationFragment
 import javax.inject.Singleton
@@ -11,5 +12,6 @@ interface PhraseAppComponent {
 
     fun inject(phraseFeedFragment: PhraseFeedFragment)
     fun inject(translationFragment: TranslationFragment)
+    fun inject(favoritesFragment: FavoritesFragment)
 
 }

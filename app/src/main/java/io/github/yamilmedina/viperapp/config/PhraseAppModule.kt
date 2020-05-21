@@ -4,13 +4,12 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedInteractor
-import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedPresenter
 import io.github.yamilmedina.viperapp.translations.TranslationInteractor
 import io.github.yamilmedina.viperapp.translations.TranslationPresenter
 import javax.inject.Singleton
 
 @Module
-class PhraseAppModule(val context: Context) {
+class PhraseAppModule(private val context: Context) {
 
     @Provides
     @Singleton
@@ -22,10 +21,6 @@ class PhraseAppModule(val context: Context) {
 
     @Provides
     @Singleton
-    internal fun getPhraseFeedPresenter(phraseFeedInteractor: PhraseFeedInteractor): PhraseFeedPresenter = PhraseFeedPresenter(phraseFeedInteractor)
-
-    @Provides
-    @Singleton
-    internal fun getTranslationPresenter(translationInteractor: TranslationInteractor) =  TranslationPresenter(translationInteractor)
+    internal fun getTranslationPresenter(translationInteractor: TranslationInteractor) = TranslationPresenter(translationInteractor)
 
 }

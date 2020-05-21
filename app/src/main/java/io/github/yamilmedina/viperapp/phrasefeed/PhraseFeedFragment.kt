@@ -3,6 +3,7 @@ package io.github.yamilmedina.viperapp.phrasefeed
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import io.github.yamilmedina.viperapp.R
 import io.github.yamilmedina.viperapp.utils.appComponent
 import kotlinx.android.synthetic.main.phrase_fragment.*
@@ -27,6 +28,12 @@ class PhraseFeedFragment : PhraseFeedView, Fragment(R.layout.phrase_fragment) {
                 actions.originalQuote = textViewPhraseDisplay.text.toString()
                 Navigation.findNavController(it).navigate(actions)
             }
+        }
+
+        textViewPhraseDisplay.setOnLongClickListener {
+            presenter.saveFavorite(textViewPhraseDisplay.text.toString())
+            Snackbar.make(it, "Liked quote saved!", Snackbar.LENGTH_LONG).show()
+            return@setOnLongClickListener true
         }
     }
 
