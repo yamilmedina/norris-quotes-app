@@ -10,13 +10,13 @@ class FavoritesInteractor @Inject constructor(private val context: Context) {
 
     fun getFavoriteQuotes(): List<String> {
         val sharedPreferences = context.getSharedPreferences(DB_PREF, Context.MODE_PRIVATE)
-        val quotes = sharedPreferences.getStringSet(QUOTES_KEY, null)
+        val quotes = sharedPreferences.getStringSet(QUOTES_KEY, emptySet())
         return quotes?.toList()!!
     }
 
     fun saveFavoriteQuote(favoriteQuote: String) {
         val sharedPreferences = context.getSharedPreferences(DB_PREF, Context.MODE_PRIVATE)
-        val quotes = sharedPreferences.getStringSet(QUOTES_KEY, null)
+        val quotes = sharedPreferences.getStringSet(QUOTES_KEY, mutableSetOf())
         quotes?.add(favoriteQuote)
 
         val editor = sharedPreferences.edit()
