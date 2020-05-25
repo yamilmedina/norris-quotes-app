@@ -2,9 +2,12 @@ package io.github.yamilmedina.viperapp.phrasefeed
 
 import android.text.Html
 import android.util.Log
-import io.github.yamilmedina.viperapp.MainActivity
 import io.github.yamilmedina.viperapp.favorites.FavoritesInteractor
 import io.reactivex.disposables.Disposable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 internal class PhraseFeedPresenter @Inject constructor(
@@ -13,18 +16,22 @@ internal class PhraseFeedPresenter @Inject constructor(
 
     private var disposable: Disposable? = null
     private lateinit var view: PhraseFeedView
-    private val phraseFeedRouter: PhraseFeedRouter by lazy { PhraseFeedRouter(view as MainActivity) }
 
     fun generateRandomPhrase() {
-        disposable = phraseFeedInteractor
-                .fetchRandomPhrases(5)
-                .doOnSubscribe { view.showLoader() }
-                .doFinally { view.stopLoader() }
-                .subscribe({
-                    view.showRandomPhrase(getNormalizedText(it.phrases.shuffled().take(1)[0].joke))
-                }, {
-                    Log.e("ERRORS", "Error: ${it.message}")
-                })
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                view.showLoader()
+                val phrasesResult = phraseFeedInteractor.fetchRandomPhrases(5)
+                withContext(Dispatchers.Main) {
+                    view.showRandomPhrase(getNormalizedText(phrasesResult.phrases.shuffled().take(1)[0].joke))
+                }
+            } catch (e: Exception) {
+                Log.e("ERRORS", "Error: ${e.message}")
+            } finally {
+                view.stopLoader()
+            }
+
+        }
     }
 
     fun disposeCalls() {
