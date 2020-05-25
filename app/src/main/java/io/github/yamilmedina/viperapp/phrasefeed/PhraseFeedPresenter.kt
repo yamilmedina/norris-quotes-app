@@ -26,11 +26,10 @@ internal class PhraseFeedPresenter @Inject constructor(
                     view.showRandomPhrase(getNormalizedText(phrasesResult.phrases.shuffled().take(1)[0].joke))
                 }
             } catch (e: Exception) {
-                Log.e("ERRORS", "Error: ${e.message}")
+                Log.e("PhraseFeedPresenter", "Error: ${e.message}")
             } finally {
                 view.stopLoader()
             }
-
         }
     }
 
