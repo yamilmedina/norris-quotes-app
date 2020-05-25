@@ -3,22 +3,18 @@ package io.github.yamilmedina.viperapp.phrasefeed
 import android.text.Html
 import android.util.Log
 import io.github.yamilmedina.viperapp.favorites.FavoritesInteractor
-import io.reactivex.disposables.Disposable
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 internal class PhraseFeedPresenter @Inject constructor(
         private val phraseFeedInteractor: PhraseFeedInteractor,
         private val favoritesInteractor: FavoritesInteractor) {
 
-    private var disposable: Disposable? = null
+    private var jobs: MutableSet<Job>? = mutableSetOf()
     private lateinit var view: PhraseFeedView
 
     fun generateRandomPhrase() {
-        CoroutineScope(Dispatchers.IO).launch {
+        val job = CoroutineScope(Dispatchers.IO).launch {
             try {
                 view.showLoader()
                 val phrasesResult = phraseFeedInteractor.fetchRandomPhrases(5)
@@ -31,10 +27,13 @@ internal class PhraseFeedPresenter @Inject constructor(
                 view.stopLoader()
             }
         }
+        jobs?.add(job)
     }
 
     fun disposeCalls() {
-        disposable?.dispose()
+        jobs?.forEach {
+            it.cancel()
+        }
     }
 
     private fun getNormalizedText(htmlText: String): String {

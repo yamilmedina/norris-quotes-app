@@ -27,4 +27,9 @@ class TranslationFragment : TranslationView, Fragment(R.layout.translations_frag
         translatedText.text = text
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.disposeCalls()
+    }
+
 }
