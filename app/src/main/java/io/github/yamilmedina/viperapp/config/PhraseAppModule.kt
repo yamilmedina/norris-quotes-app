@@ -4,8 +4,8 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import io.github.yamilmedina.viperapp.phrasefeed.PhraseFeedInteractor
-import io.github.yamilmedina.viperapp.translations.TranslationInteractor
-import io.github.yamilmedina.viperapp.translations.TranslationPresenter
+import io.github.yamilmedina.viperapp.utils.CoroutineContextProvider
+import io.github.yamilmedina.viperapp.utils.DefaultCoroutineContextProvider
 import javax.inject.Singleton
 
 @Module
@@ -21,6 +21,7 @@ class PhraseAppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    internal fun getTranslationPresenter(translationInteractor: TranslationInteractor) = TranslationPresenter(translationInteractor)
+    internal fun getDefaultCoroutinesProvider(): CoroutineContextProvider = DefaultCoroutineContextProvider()
+
 
 }

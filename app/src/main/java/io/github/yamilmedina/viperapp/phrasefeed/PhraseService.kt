@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface PhraseService {
 
-    @GET("random/{quantity}")
+    @GET("random/{quantity}/limitTo=[nerdy,%20explicit]?escape=javascript")
     suspend fun fetchRandomPhrase(@Path("quantity") quantity: Int): PhraseResultEntity
 }
