@@ -3,7 +3,7 @@ package io.github.yamilmedina.viperapp.translations
 import io.github.yamilmedina.viperapp.utils.HttpManager
 import javax.inject.Inject
 
-internal class TranslationInteractor @Inject constructor() {
+class TranslationInteractor @Inject constructor() {
     private val translationService: TranslationService by lazy {
         HttpManager.createRemoteService("https://translate.googleapis.com/translate_a/", TranslationService::class.java)
     }

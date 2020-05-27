@@ -23,7 +23,7 @@ internal class PhraseFeedPresenter @Inject constructor(
                 view.showLoader()
                 val phrasesResult = phraseFeedInteractor.fetchRandomPhrases()
                 withContext(contextProvider.main) {
-                    view.showRandomPhrase(phrasesResult.phrases.shuffled().take(1)[0].joke)
+                    view.showRandomPhrase(phrasesResult.phrases[0].joke)
                 }
             } catch (e: Exception) {
                 Log.e("PhraseFeedPresenter", "Error: ${e.message}")

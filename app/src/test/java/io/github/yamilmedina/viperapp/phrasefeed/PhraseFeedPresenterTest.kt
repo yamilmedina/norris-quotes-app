@@ -2,6 +2,7 @@ package io.github.yamilmedina.viperapp.phrasefeed
 
 
 import com.nhaarman.mockitokotlin2.*
+import io.github.yamilmedina.viperapp.TestContextProvider
 import io.github.yamilmedina.viperapp.data.PhraseEntity
 import io.github.yamilmedina.viperapp.data.PhraseResultEntity
 import io.github.yamilmedina.viperapp.favorites.FavoritesInteractor

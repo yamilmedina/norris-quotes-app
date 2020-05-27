@@ -1,4 +1,4 @@
-package io.github.yamilmedina.viperapp.phrasefeed
+package io.github.yamilmedina.viperapp
 
 import io.github.yamilmedina.viperapp.utils.CoroutineContextProvider
 import kotlinx.coroutines.CoroutineDispatcher

@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-internal class TranslationPresenter @Inject constructor(
+class TranslationPresenter @Inject constructor(
         private val translationInteractor: TranslationInteractor,
         private val contextProvider: CoroutineContextProvider) {
 

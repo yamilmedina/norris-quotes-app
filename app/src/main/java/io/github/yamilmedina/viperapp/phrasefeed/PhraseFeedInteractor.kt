@@ -9,7 +9,7 @@ internal class PhraseFeedInteractor {
         HttpManager.createRemoteService("https://api.icndb.com/jokes/", PhraseService::class.java)
     }
 
-    suspend fun fetchRandomPhrases(quantity: Int = 10): PhraseResultEntity {
+    suspend fun fetchRandomPhrases(quantity: Int = 1): PhraseResultEntity {
         return phraseService.fetchRandomPhrase(quantity)
     }
 
