@@ -10,3 +10,6 @@ App to practice serve as a POC base to experiment with different features, compo
 
 ### Translated quote to spanish:
 <img src="content/translated_quote.png" width="200"/>
+
+### Favs view:
+<img src="content/favs_view.png" width="200"/>
